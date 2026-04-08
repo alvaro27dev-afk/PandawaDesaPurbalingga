@@ -1,4 +1,3 @@
-// Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -7,13 +6,11 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 }));
 
-// Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,7 +24,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar Background on Scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -39,7 +35,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Fade-in Animation on Scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -53,13 +48,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for fade-in
 document.querySelectorAll('.about-text p, .gallery-item, .program-card, .join-content').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
 });
 
-// Gallery Hover Effects
 document.querySelectorAll('.gallery-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
         item.style.transform = 'translateY(-10px) scale(1.02)';
@@ -70,7 +63,6 @@ document.querySelectorAll('.gallery-item').forEach(item => {
     });
 });
 
-// Program Cards Hover Effects
 document.querySelectorAll('.program-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
         card.style.transform = 'translateY(-10px)';
@@ -81,21 +73,16 @@ document.querySelectorAll('.program-card').forEach(card => {
     });
 });
 
-// Register Button Interaction
 const registerBtn = document.getElementById('registerBtn');
 registerBtn.addEventListener('click', function(e) {
-    // Pulse animation
     this.style.transform = 'scale(0.95)';
     setTimeout(() => {
         this.style.transform = 'translateY(-3px)';
     }, 150);
     
-    // TODO: Replace with your registration form/modal logic
-    // Example: openModal('registration-modal');
     console.log('Registration clicked - Replace href="#" with your registration link');
 });
 
-// Active Nav Link on Scroll
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section[id]');
@@ -116,7 +103,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add active class to nav links
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function() {
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -124,7 +110,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Window Load Animation
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
@@ -132,13 +117,11 @@ window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     }, 100);
     
-    // Trigger initial scroll animations
     setTimeout(() => {
         window.scrollTo(0, 0);
     }, 500);
 });
 
-// Parallax Effect for Hero
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -148,7 +131,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile Menu Close on Outside Click
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
         hamburger.classList.remove('active');
